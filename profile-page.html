@@ -1,0 +1,454 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ShopEase — My Profile</title>
+  <style>
+    :root {
+      --blue: #45699f;
+      --line: #bec3c6;
+      --surface: #fff;
+      --page: #f5f8f9;
+      --text: #101114;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      background: var(--page);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .topbar {
+      height: 82px;
+      background: #fff;
+      border-bottom: 1px solid #c7cbce;
+    }
+
+    .topbar-inner {
+      width: min(100% - 48px, 1008px);
+      height: 100%;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #111;
+      font-size: 27px;
+      font-weight: 700;
+      letter-spacing: -.8px;
+      text-decoration: none;
+    }
+
+    .brand-mark {
+      color: var(--blue);
+      font-size: 36px;
+      line-height: 1;
+      font-weight: 900;
+      transform: skewY(-20deg);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      margin-left: 90px;
+    }
+
+    .nav a {
+      color: #111;
+      font-size: 20px;
+      text-decoration: none;
+    }
+
+    .nav a.active { color: var(--blue); }
+
+    .actions {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .search-icon {
+      width: 23px;
+      height: 23px;
+      border: 2px solid #111;
+      border-radius: 50%;
+      position: relative;
+    }
+
+    .search-icon::after {
+      content: "";
+      position: absolute;
+      width: 10px;
+      height: 2px;
+      background: #111;
+      right: -7px;
+      bottom: -4px;
+      transform: rotate(48deg);
+    }
+
+    .mini-avatar, .avatar {
+      border-radius: 50%;
+      background: #d5d9dd;
+      border: 3px solid var(--blue);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .mini-avatar {
+      width: 36px;
+      height: 36px;
+    }
+
+    .mini-avatar::before, .avatar::before {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      background: #9aa1a8;
+      left: 50%;
+      transform: translateX(-50%);
+      top: 23%;
+      width: 38%;
+      aspect-ratio: 1;
+    }
+
+    .mini-avatar::after, .avatar::after {
+      content: "";
+      position: absolute;
+      background: #9aa1a8;
+      left: 13%;
+      width: 74%;
+      height: 45%;
+      bottom: -5%;
+      border-radius: 50% 50% 0 0;
+    }
+
+    main {
+      width: min(100% - 48px, 1008px);
+      margin: 51px auto 60px;
+    }
+
+    h1 {
+      font-size: 40px;
+      line-height: 1.2;
+      margin: 0 0 40px;
+      letter-spacing: -.6px;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 258px minmax(0, 1fr);
+      gap: 22px;
+      align-items: start;
+    }
+
+    .sidebar, .card {
+      background: var(--surface);
+      border: 1.4px solid var(--line);
+      border-radius: 14px;
+    }
+
+    .sidebar {
+      min-height: 610px;
+      padding: 9px;
+    }
+
+    .side-link {
+      display: block;
+      padding: 11px 13px;
+      margin: 0 0 7px;
+      color: #161719;
+      font-size: 19px;
+      text-decoration: none;
+      border-radius: 10px;
+    }
+
+    .side-link.selected {
+      background: #e9edef;
+      position: relative;
+    }
+
+    .side-link.selected::before {
+      content: "";
+      position: absolute;
+      width: 4px;
+      left: -10px;
+      top: 0;
+      bottom: 0;
+      background: var(--blue);
+      border-radius: 4px;
+    }
+
+    .content { min-width: 0; }
+
+    .identity {
+      min-height: 178px;
+      padding: 27px 27px 27px 24px;
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      margin-bottom: 19px;
+    }
+
+    .avatar {
+      width: 117px;
+      height: 117px;
+      flex: 0 0 auto;
+      border-width: 4px;
+      box-shadow: inset 0 0 0 4px white;
+    }
+
+    .identity-text {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .identity h2 {
+      font-size: 28px;
+      margin: 0 0 8px;
+      letter-spacing: -.3px;
+    }
+
+    .identity p {
+      font-size: 20px;
+      margin: 0;
+    }
+
+    .edit-btn {
+      color: var(--blue);
+      border: 1.5px solid var(--blue);
+      border-radius: 10px;
+      background: white;
+      padding: 9px 19px;
+      font-size: 19px;
+      white-space: nowrap;
+    }
+
+    .details {
+      display: grid;
+      grid-template-columns: 1.55fr 1fr;
+      padding: 22px 26px 26px 24px;
+      gap: 27px;
+    }
+
+    .personal {
+      padding-right: 27px;
+      border-right: 1px solid #d0d3d5;
+      min-height: 300px;
+    }
+
+    .section-heading {
+      font-size: 20px;
+      margin: 3px 0 30px;
+    }
+
+    .info { margin-bottom: 23px; }
+
+    .info label {
+      display: block;
+      font-size: 18px;
+      margin-bottom: 9px;
+    }
+
+    .info p {
+      margin: 0;
+      font-size: 20px;
+    }
+
+    .stats .section-heading { margin-bottom: 15px; }
+
+    .stat {
+      border: 1.4px solid var(--line);
+      border-radius: 14px;
+      padding: 15px 18px;
+      margin-bottom: 19px;
+    }
+
+    .stat span {
+      display: block;
+      font-size: 17px;
+      margin-bottom: 3px;
+    }
+
+    .stat strong { font-size: 27px; }
+
+    @media (max-width: 760px) {
+      .topbar { height: 68px; }
+
+      .topbar-inner, main {
+        width: min(100% - 30px, 600px);
+      }
+
+      .brand { font-size: 22px; }
+      .brand-mark { font-size: 31px; }
+
+      .nav {
+        gap: 15px;
+        margin: 0;
+      }
+
+      .nav a { font-size: 14px; }
+      .actions { gap: 15px; }
+      main { margin-top: 35px; }
+      h1 { font-size: 34px; margin-bottom: 27px; }
+
+      .layout {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .sidebar {
+        min-height: 0;
+        display: flex;
+        overflow-x: auto;
+        gap: 5px;
+        padding: 8px;
+      }
+
+      .side-link {
+        white-space: nowrap;
+        font-size: 15px;
+        margin: 0;
+        padding: 10px;
+      }
+
+      .side-link.selected::before {
+        left: 0;
+        top: auto;
+        height: 3px;
+        width: auto;
+      }
+
+      .identity {
+        min-height: 140px;
+        gap: 16px;
+        padding: 18px;
+      }
+
+      .avatar { width: 86px; height: 86px; }
+      .identity h2 { font-size: 22px; }
+      .identity p { font-size: 15px; }
+      .edit-btn { font-size: 14px; padding: 8px 10px; }
+    }
+
+    @media (max-width: 480px) {
+      .topbar-inner { width: calc(100% - 22px); }
+      .brand { gap: 4px; font-size: 18px; }
+      .brand-mark { font-size: 26px; }
+      .nav { gap: 10px; }
+      .nav a { font-size: 12px; }
+      .actions { gap: 13px; }
+      .mini-avatar { width: 30px; height: 30px; }
+      .search-icon { width: 19px; height: 19px; }
+      main { width: calc(100% - 28px); }
+
+      .details {
+        grid-template-columns: 1fr;
+        padding: 20px;
+      }
+
+      .personal {
+        border-right: 0;
+        border-bottom: 1px solid #d0d3d5;
+        padding: 0 0 7px;
+        min-height: auto;
+      }
+
+      .section-heading { margin-bottom: 22px; }
+      .identity { gap: 12px; }
+      .avatar { width: 68px; height: 68px; }
+      .identity h2 { font-size: 18px; }
+      .identity p { font-size: 13px; }
+      .edit-btn { font-size: 12px; padding: 7px 8px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="#" aria-label="ShopEase home">
+        <span class="brand-mark">S</span>
+        <span>ShopEase</span>
+      </a>
+
+      <nav class="nav" aria-label="Main navigation">
+        <a href="#">Home</a>
+        <a href="#">Products</a>
+        <a href="#">Cart</a>
+        <a class="active" href="#profile">Profile</a>
+      </nav>
+
+      <div class="actions">
+        <span class="search-icon" aria-label="Search"></span>
+        <span class="mini-avatar" aria-label="Account"></span>
+      </div>
+    </div>
+  </header>
+
+  <main id="profile">
+    <h1>My Profile</h1>
+
+    <div class="layout">
+      <aside class="sidebar" aria-label="Profile navigation">
+        <a class="side-link selected" href="#personal">Profile Details</a>
+        <a class="side-link" href="#orders">Orders</a>
+        <a class="side-link" href="#addresses">Addresses</a>
+        <a class="side-link" href="#payments">Payment Methods</a>
+        <a class="side-link" href="#settings">Settings</a>
+      </aside>
+
+      <div class="content">
+        <section class="card identity">
+          <div class="avatar" aria-hidden="true"></div>
+          <div class="identity-text">
+            <h2>Piyush Kumar</h2>
+            <p>piyush@example.com</p>
+          </div>
+          <button class="edit-btn" type="button">Edit Profile</button>
+        </section>
+
+        <section class="card details" id="personal">
+          <div class="personal">
+            <h3 class="section-heading">Personal Information</h3>
+
+            <div class="info">
+              <label>Full Name</label>
+              <p>Piyush Kumar</p>
+            </div>
+
+            <div class="info">
+              <label>Email</label>
+              <p>piyush@example.com</p>
+            </div>
+
+            <div class="info">
+              <label>Phone</label>
+              <p>+91-1235-6689</p>
+            </div>
+          </div>
+
+          <div class="stats">
+            <h3 class="section-heading">Quick Stats</h3>
+            <div class="stat"><span>Total Orders</span><strong>10</strong></div>
+            <div class="stat"><span>Wishlist Items</span><strong>2</strong></div>
+            <div class="stat"><span>Total Spent</span><strong>$30.00</strong></div>
+            <div class="stat"><span>Member Since</span><strong>2023</strong></div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
+
+
+9:26 PM
