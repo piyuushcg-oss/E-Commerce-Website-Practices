@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #header {
+            border: 1px solid black;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+
+        }
+
+        .headertags {
+            /* border: 1px solid black; */
+            text-decoration: none;
+            color: black;
+            font-size: 21px;
+            margin: 30px;
+
+
+        }
+
+        #bodd {
+            border: 1px solid black;
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+
+            align-items: center;
+            justify-content: first baseline;
+        }
+
+        aside {
+            border: 1px solid rebeccapurple;
+            width: 60%;
+            height: inherit;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+
+
+
+        }
+        .Checkout{
+            border: 1px solid black;
+            height: 111px;
+            width: 222px;
+        }
+
+        .Checkout {
+            border: 1px solid black;
+            text-decoration: none;
+
+
+        }
+
+        .order_Summary {
+            border: 1px solid black;
+            height: 400px;
+            width: 500px;
+            display: flex;
+            /* align-items: first baseline; */
+            /* justify-content: first baseline; */
+            /* flex-direction: row; */
+        }
+        .order_Summary div{
+            border: 1px solid black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+
+        .inpr {
+            border: 1px solid black;
+            margin: 10px;
+        }
+
+        #payment {
+            border: 1px solid black;
+        }
+
+        .inpr {
+            border: 1px solid black;
+        }
+        .ProductName{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header">
+        <h1>ShopEase</h1>
+        <span>
+            <a href="" class="headertags">Home</a>
+            <a href="" class="headertags">Product</a>
+            <a href="" class="headertags">Cart</a>
+            <a href="" class="headertags">Profile</a>
+        </span>
+    </div>
+    <div id="bodd">
+        <aside>
+            <div class="checkout123">
+            <b>Checkout</b>
+            <form action="">Shipping Address
+                <br>
+                <div id="typeinput">
+                    <input type="text" placeholder="Full Name">
+                    <br>
+                    <input type="text" placeholder="Address">
+                    <br>
+                    <input type="text" name="" id="" placeholder="City">
+                    <input type="text" placeholder="PIN Code" name="" id="">
+                    <br>
+                    <input type="text" placeholder="Phone Number" name="" id="">
+                </div>
+            </form>
+            <form action="" id="" type="">
+                <b>Payment Method</b>
+                <br>
+                <input type="radio" name="UPI" id="" class="inpr">
+                <label for="">Credit/Debit Card</label>
+                <br>
+                <input type="radio" name="UPI" id="" class="inpr">
+                <label for="">UPI</label>
+                <br>
+                <input type="radio" name="" id="" class="inpr">
+                <label for="">Cash on Delivery</label>
+            </form>
+            </div>
+        </aside>
+        <div class="order_Summary">
+
+            <div><img src="photos/image.png" alt="" class="ProductName"> Product Name</div>
+            
+        </div>
+    </div>
+</body>
+
+</html>
