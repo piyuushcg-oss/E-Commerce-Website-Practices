@@ -1,146 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        #header {
-            border: 1px solid black;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-
-        }
-
-        .headertags {
-            /* border: 1px solid black; */
-            text-decoration: none;
-            color: black;
-            font-size: 21px;
-            margin: 30px;
-
-
-        }
-
-        #bodd {
-            border: 1px solid black;
-            height: 100vh;
-            width: 100vw;
-            display: flex;
-
-            align-items: center;
-            justify-content: first baseline;
-        }
-
-        aside {
-            border: 1px solid rebeccapurple;
-            width: 60%;
-            height: inherit;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-
-
-
-        }
-        .Checkout{
-            border: 1px solid black;
-            height: 111px;
-            width: 222px;
-        }
-
-        .Checkout {
-            border: 1px solid black;
-            text-decoration: none;
-
-
-        }
-
-        .order_Summary {
-            border: 1px solid black;
-            height: 400px;
-            width: 500px;
-            display: flex;
-            /* align-items: first baseline; */
-            /* justify-content: first baseline; */
-            /* flex-direction: row; */
-        }
-        .order_Summary div{
-            border: 1px solid black;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-
-        .inpr {
-            border: 1px solid black;
-            margin: 10px;
-        }
-
-        #payment {
-            border: 1px solid black;
-        }
-
-        .inpr {
-            border: 1px solid black;
-        }
-        .ProductName{
-            border: 1px solid black;
-        }
-    </style>
+    <title>ShopEase - Checkout</title>
+    <link rel="stylesheet" href="checkout.css">
 </head>
-
 <body>
-    <div id="header">
-        <h1>ShopEase</h1>
-        <span>
-            <a href="" class="headertags">Home</a>
-            <a href="" class="headertags">Product</a>
-            <a href="" class="headertags">Cart</a>
-            <a href="" class="headertags">Profile</a>
-        </span>
-    </div>
-    <div id="bodd">
-        <aside>
-            <div class="checkout123">
-            <b>Checkout</b>
-            <form action="">Shipping Address
-                <br>
-                <div id="typeinput">
-                    <input type="text" placeholder="Full Name">
-                    <br>
-                    <input type="text" placeholder="Address">
-                    <br>
-                    <input type="text" name="" id="" placeholder="City">
-                    <input type="text" placeholder="PIN Code" name="" id="">
-                    <br>
-                    <input type="text" placeholder="Phone Number" name="" id="">
+
+    <!-- Navigation Bar -->
+    <header class="navbar">
+        <div class="logo">ShopEase</div>
+
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Products</a>
+            <a href="#">Cart</a>
+            <a href="#">Profile</a>
+        </nav>
+    </header>
+
+    <!-- Checkout Section -->
+    <main class="checkout-container">
+
+        <h1>Checkout</h1>
+
+        <div class="checkout-layout">
+
+            <!-- Left Side: Checkout Form -->
+            <section class="checkout-form">
+
+                <form action="#" method="post">
+
+                    <h2>Shipping Address</h2>
+
+                    <input
+                        type="text"
+                        placeholder="Full Name"
+                        aria-label="Full Name"
+                        required
+                    >
+
+                    <textarea
+                        placeholder="Address"
+                        aria-label="Address"
+                        rows="2"
+                        required
+                    ></textarea>
+
+                    <div class="input-row">
+                        <input
+                            type="text"
+                            placeholder="City"
+                            aria-label="City"
+                            required
+                        >
+
+                        <input
+                            type="text"
+                            placeholder="PIN Code"
+                            aria-label="PIN Code"
+                            inputmode="numeric"
+                            required
+                        >
+                    </div>
+
+                    <input
+                        type="tel"
+                        placeholder="Phone Number"
+                        aria-label="Phone Number"
+                        required
+                    >
+
+                    <h2 class="payment-heading">Payment Method</h2>
+
+                    <div class="payment-options">
+                        <label>
+                            <input
+                                type="radio"
+                                name="payment"
+                                value="card"
+                                checked
+                            >
+                            Credit / Debit Card
+                        </label>
+
+                        <label>
+                            <input
+                                type="radio"
+                                name="payment"
+                                value="upi"
+                            >
+                            UPI
+                        </label>
+
+                        <label>
+                            <input
+                                type="radio"
+                                name="payment"
+                                value="cod"
+                            >
+                            Cash on Delivery
+                        </label>
+                    </div>
+
+                    <button type="submit" class="place-order">
+                        Place Order
+                    </button>
+
+                </form>
+            </section>
+
+            <!-- Right Side: Order Summary -->
+            <aside class="order-summary">
+
+                <h2>Order Summary</h2>
+
+                <div class="product">
+                    <img
+                        src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=120&h=120&fit=crop"
+                        alt="Wrist watch"
+                    >
+
+                    <div class="product-info">
+                        <p>Product Name</p>
+                        <span>$3.00</span>
+                    </div>
                 </div>
-            </form>
-            <form action="" id="" type="">
-                <b>Payment Method</b>
-                <br>
-                <input type="radio" name="UPI" id="" class="inpr">
-                <label for="">Credit/Debit Card</label>
-                <br>
-                <input type="radio" name="UPI" id="" class="inpr">
-                <label for="">UPI</label>
-                <br>
-                <input type="radio" name="" id="" class="inpr">
-                <label for="">Cash on Delivery</label>
-            </form>
-            </div>
-        </aside>
-        <div class="order_Summary">
 
-            <div><img src="photos/image.png" alt="" class="ProductName"> Product Name</div>
-            
+                <div class="product">
+                    <img
+                        src="https://images.unsplash.com/photo-1542496658-e33a6d0d50f6?w=120&h=120&fit=crop"
+                        alt="Black watch"
+                    >
+
+                    <div class="product-info">
+                        <p>Product Phone</p>
+                        <span>$5.00</span>
+                    </div>
+                </div>
+
+                <div class="product">
+                    <img
+                        src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=120&h=120&fit=crop"
+                        alt="Smartphone"
+                    >
+
+                    <div class="product-info">
+                        <p>Product Weight</p>
+                        <span>$7.00</span>
+                    </div>
+                </div>
+
+                <div class="summary-details">
+                    <div class="summary-row">
+                        <span>Subtotal</span>
+                        <span>$138.00</span>
+                    </div>
+
+                    <div class="summary-row">
+                        <span>Shipping</span>
+                        <span>$0.00</span>
+                    </div>
+
+                    <div class="summary-row total">
+                        <strong>Total</strong>
+                        <strong>$27.00</strong>
+                    </div>
+                </div>
+
+            </aside>
+
         </div>
-    </div>
-</body>
+    </main>
 
+</body>
 </html>
